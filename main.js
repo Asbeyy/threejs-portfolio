@@ -98,7 +98,7 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 //controls
 const controls = new OrbitControls( camera, canvas );
 const axesHelper = new THREE.AxesHelper( 5 );
-scene.add( axesHelper );
+//scene.add( axesHelper );
 
 
 
