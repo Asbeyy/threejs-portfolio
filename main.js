@@ -110,6 +110,7 @@ scene.add(wall)
 const wallLeft = new THREE.Mesh(wallGeometry,wallMaterial)
 wallLeft.rotation.y = Math.PI / 2
 wallLeft.position.x = -5
+wallLeft.position.y = 4
 scene.add(wallLeft)
 
 
@@ -117,7 +118,7 @@ scene.add(wallLeft)
 
 //Project Paintings
 export const painting = new THREE.Mesh(
-  new THREE.PlaneGeometry(2,1.4),
+  new THREE.PlaneGeometry(1.8,1.2),
   new THREE.MeshNormalMaterial({
   })
 )
@@ -169,8 +170,8 @@ scene.add(painting)
  */
 const animate = () => {
 
-  console.log((camera.rotation.x).toFixed(2),camera.rotation.y.toFixed(2),camera.rotation.z.toFixed(2))
-  console.log((camera.position.x).toFixed(2),camera.position.y.toFixed(2),camera.position.z.toFixed(2))
+  // console.log((camera.rotation.x).toFixed(2),camera.rotation.y.toFixed(2),camera.rotation.z.toFixed(2))
+  // console.log((camera.position.x).toFixed(2),camera.position.y.toFixed(2),camera.position.z.toFixed(2))
 
   renderer.render(scene,camera)
   window.requestAnimationFrame(animate)

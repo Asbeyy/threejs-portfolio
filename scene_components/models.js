@@ -10,7 +10,7 @@ import * as THREE from 'three'
 
 const models_settings = {
   desk: true,
-  fridge: true,
+  living: false,
 }
 
 
@@ -75,27 +75,25 @@ if (models_settings.desk === true){
 /**
  * Fridge
  */
-const mixer = new THREE.AnimationMixer();
-const clock = new THREE.Clock()
 
-if (models_settings.fridge === true){
+if (models_settings.living === true){
 
   loader.load(
-    'models/retro_fridge/scene.gltf',
+    'models/livingroom/living-room.gltf',
     function ( gltf ) {
       let model= gltf.scene
       scene.add( model );
 
-      model.scale.set(.8,.8,.8)
-      model.position.x = -4
-      model.position.y = -0.1
-      model.position.z = -0.3
-      model.rotation.y = - Math.PI *0.25
+      model.scale.set(.25,.25,.25)
+      model.position.x = -2.5
+      model.position.y = -0.85
+      model.position.z = 2.18
+      model.rotation.y = - Math.PI / 2
      
     },
     function ( xhr ) {
       if (xhr.loaded / xhr.total * 100 === 100){
-        console.log( 'Arcade Machine Load Complete' );
+        console.log( 'Living room Load Complete' );
       }
     },
     function ( error ) {
@@ -110,16 +108,3 @@ if (models_settings.fridge === true){
 
 
 
-
-
-/**
- * Animate LOOP
- */
-
-function animate() {
-  requestAnimationFrame(animate);
-  
-  const deltaTime = clock.getDelta();
-  mixer.update(deltaTime);
-}
-animate();
