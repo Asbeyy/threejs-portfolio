@@ -88,5 +88,7 @@ const spotLightHelper = new THREE.SpotLightHelper( spotLight );
 //scene.add(ambienLight)
 //scene.add( spotLight );
 // scene.add( spotLight2 );
+
+
  scene.add( pointLight )
  scene.add( rectLight )
