@@ -54,6 +54,11 @@ const spotLightHelper = new THREE.SpotLightHelper( spotLight );
 
 
 
+/**
+ * Ambient Light
+ */
+
+const ambienLight = new THREE.AmbientLight('#ffffff',0.3)
 
 
 

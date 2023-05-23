@@ -10,7 +10,7 @@ import * as THREE from 'three'
 
 const models_settings = {
   desk: true,
-  arcade: true,
+  fridge: true,
 }
 
 
@@ -73,36 +73,25 @@ if (models_settings.desk === true){
 
 
 /**
- * Arcade Machine
+ * Fridge
  */
 const mixer = new THREE.AnimationMixer();
 const clock = new THREE.Clock()
 
-if (models_settings.arcade === true){
+if (models_settings.fridge === true){
 
   loader.load(
-    'models/pacman/scene.gltf',
+    'models/retro_fridge/scene.gltf',
     function ( gltf ) {
       let model= gltf.scene
       scene.add( model );
-  
-      model.traverse((node) => {
-        if (node.isMesh) {
-        node.castShadow = true;
-        node.receiveShadow = true;
-        }
-      });
-  
-      model.scale.set(0.02,0.02,0.02)
+
+      model.scale.set(.8,.8,.8)
       model.position.x = -4
-      model.position.y = -0.85
+      model.position.y = -0.1
       model.position.z = -0.3
-      model.rotation.y = Math.PI * 0.25
-  
-      //Animations
-      const animations =	gltf.animations; 
-      const action = mixer.clipAction (animations[0], gltf.scene)
-      action.play();
+      model.rotation.y = - Math.PI *0.25
+     
     },
     function ( xhr ) {
       if (xhr.loaded / xhr.total * 100 === 100){
@@ -110,7 +99,7 @@ if (models_settings.arcade === true){
       }
     },
     function ( error ) {
-      console.log( 'An error happened' );
+      console.log( 'An error happened', error );
     }
   );
 

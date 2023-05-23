@@ -29,13 +29,13 @@ function desktopAnimation(){
       }
     })
 
-    tl.to(camera.position, {x:-1.97, y:0.27, z:0.69}, section)
-    tl.to(camera.rotation, {x:-0.86, y:1.33, z:0.85}, section)
+    tl.to(camera.position, {x:-2.78, y:0.21, z:2.30}, section)
+    tl.to(camera.rotation, {x:-0.07, y:0.07, z:0.01}, section)
     tl.to(painting.position, {x:-4.9}, section)
     
     //Section 2
     section+=1
-    tl.to(camera.position, {x:0.23, y:0.76, z:3.40}, section)
+    tl.to(camera.position, {x:0.23, y:0.76, z:3.0}, section)
     tl.to(camera.rotation, {x:-0.24, y:1.21, z:0.22}, section)
   
     //Section3 

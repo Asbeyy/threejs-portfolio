@@ -169,8 +169,8 @@ scene.add(painting)
  */
 const animate = () => {
 
-  // console.log((camera.rotation.x).toFixed(2),camera.rotation.y.toFixed(2),camera.rotation.z.toFixed(2))
-  // console.log((camera.position.x).toFixed(2),camera.position.y.toFixed(2),camera.position.z.toFixed(2))
+  console.log((camera.rotation.x).toFixed(2),camera.rotation.y.toFixed(2),camera.rotation.z.toFixed(2))
+  console.log((camera.position.x).toFixed(2),camera.position.y.toFixed(2),camera.position.z.toFixed(2))
 
   renderer.render(scene,camera)
   window.requestAnimationFrame(animate)
