@@ -44,7 +44,7 @@ const scene = new THREE.Scene()
  */
 
 const camera = new THREE.PerspectiveCamera(45,window.innerWidth/window.innerHeight, 0.1, 1000)
-camera.position.set(-2.61,0.99,2.44)
+camera.position.set(-0.61,0.99,3.44)
 scene.add(camera)
 
 
@@ -101,7 +101,8 @@ wallTexture.repeat.set( 2, 2 );
   */
 
 const renderer = new THREE.WebGLRenderer({
-  canvas
+  canvas,
+  alpha:true
 })
 renderer.setSize(window.innerWidth, window.innerHeight)
 renderer.shadowMap.enabled = true
@@ -115,8 +116,6 @@ const axesHelper = new THREE.AxesHelper( 5 );
 
 window.addEventListener('resize', () =>
 {
- 
-
     // Update camera
     camera.aspect = window.innerWidth / window.innerHeight
     camera.updateProjectionMatrix()
@@ -167,7 +166,7 @@ const spotLightHelper = new THREE.SpotLightHelper( spotLight );
 
 
 scene.add( spotLight );
-scene.add( rectLight, pointLight )
+scene.add(  pointLight, rectLight )
 
 
 
@@ -221,6 +220,17 @@ wall.position.y = 3.7
 scene.add(wall)
 
 
+//Project Paintings
+const painting = new THREE.Mesh(
+  new THREE.PlaneGeometry(1,.8),
+  new THREE.MeshNormalMaterial({
+    color: "black"
+  })
+)
+painting.position.x = -2.6
+painting.position.y = 1
+painting.position.z = -1.2
+scene.add(painting)
 
 
 
@@ -257,6 +267,33 @@ fontLoader.load( 'Neon.json', function ( font ) {
   textMesh.position.x = -0.75
   textMesh.position.z = -1.03
   textMesh.position.y = .4
+  scene.add(textMesh);
+
+} );
+
+fontLoader.load( 'Neon.json', function ( font ) {
+	const textGeometry = new TextGeometry( 'Projects', {
+		font: font,
+		size: 0.2,
+		height: 0.05,
+		curveSegments: 12,
+		bevelEnabled: true,
+		bevelThickness: 0.089,
+		bevelSize: 0.02,
+		bevelOffset: 0,
+		bevelSegments: 10
+	} );
+
+  const neonMaterial = new THREE.MeshStandardMaterial({
+    emissive: '#ffffff',
+    emissiveIntensity: 0.5,
+    color: "#ffffff"
+  })
+  
+  const textMesh = new THREE.Mesh(textGeometry, neonMaterial);
+  textMesh.position.x = -3.2
+  textMesh.position.z = -1.03
+  textMesh.position.y = 1.7
   scene.add(textMesh);
 
 } );
@@ -356,14 +393,17 @@ function desktopAnimation(){
 
   tl.to(camera.position, {x:-2.61, y:0.99, z:2.44}, section)
   tl.to(camera.rotation, {x:-0.02, y:0, z:0}, section)
-  
-  
+  tl.to(painting.position, {z:-0.99}, section)
+
+
+   
   section+= 1
   tl.to(camera.position, {x:2.97, y:0.70, z:2.05}, section)
   tl.to(camera.rotation, {x:0.02, y:0.84, z:-0.01}, section)
-
-
+  
+  
   section+=1
+  tl.to(painting.position, {z:-1.2}, section)
   tl.to(camera.position, {x:-1.11, y:0.52, z:1.19}, section)
   tl.to(camera.rotation, {x:-0.5, y:-0.71, z:-0.34}, section)
 
