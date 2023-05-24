@@ -75,7 +75,7 @@ const floor = new THREE.Mesh(
   new THREE.MeshStandardMaterial({
     map: Textures.floorTexture,
     normalMap: Textures.floorNormal,
-    roughnessMap: Textures.floorRoughness,
+    //roughnessMap: Textures.floorRoughness,
     displacementMap: Textures.floorDisplacement,
   })
 )
@@ -95,22 +95,21 @@ const wallMaterial = new THREE.MeshStandardMaterial({
   color: 'black',
   roughness: 0.7,
 })
-const wallGeometry =  new THREE.PlaneGeometry(10,10)
+const wallGeometry =  new THREE.PlaneGeometry(10,4)
 
 
 // Backgroudn Wall
 const wall = new THREE.Mesh( wallGeometry, wallMaterial )
-
 wall.receiveShadow = true
 wall.position.z = -1
-wall.position.y = 3.7
+wall.position.y = 1.1
 scene.add(wall)
 
 //Side Wall L
 const wallLeft = new THREE.Mesh(wallGeometry,wallMaterial)
 wallLeft.rotation.y = Math.PI / 2
 wallLeft.position.x = -5
-wallLeft.position.y = 4
+wallLeft.position.y = 1.1
 scene.add(wallLeft)
 
 
@@ -127,7 +126,7 @@ painting.position.x = -5.05
 painting.position.z = 2.1
 painting.position.y = 0.8
 painting.rotation.y = Math.PI / 2
-scene.add(painting)
+//scene.add(painting)
 
 
 

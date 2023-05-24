@@ -32,10 +32,10 @@ Textures.floorDisplacement.repeat.set(2,4)
 
 Textures.wallNormal.wrapS = THREE.RepeatWrapping;
 Textures.wallNormal.wrapT = THREE.RepeatWrapping;
-Textures.wallNormal.repeat.set( 2, 2 );
+Textures.wallNormal.repeat.set( 2, 1 );
 Textures.wallRoughness.wrapS = THREE.RepeatWrapping;
 Textures.wallRoughness.wrapT = THREE.RepeatWrapping;
-Textures.wallRoughness.repeat.set( 2, 2)
+Textures.wallRoughness.repeat.set( 2, 1)
 Textures.wallTexture.wrapS = THREE.RepeatWrapping;
 Textures.wallTexture.wrapT = THREE.RepeatWrapping;
-Textures.wallTexture.repeat.set( 2, 2 );
+Textures.wallTexture.repeat.set( 2, 1 );

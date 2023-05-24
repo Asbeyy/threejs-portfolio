@@ -10,7 +10,6 @@ import * as THREE from 'three'
 
 const models_settings = {
   desk: true,
-  living: false,
 }
 
 
@@ -35,7 +34,7 @@ let desk;
 if (models_settings.desk === true){
 
   loader.load(
-    'models/desk/scene_five.gltf',
+    'models/desk/scene.gltf',
   
     function ( gltf ) {
       const desk = gltf.scene;    
@@ -69,39 +68,6 @@ if (models_settings.desk === true){
 
 
 
-
-
-
-/**
- * Fridge
- */
-
-if (models_settings.living === true){
-
-  loader.load(
-    'models/livingroom/living-room.gltf',
-    function ( gltf ) {
-      let model= gltf.scene
-      scene.add( model );
-
-      model.scale.set(.25,.25,.25)
-      model.position.x = -2.5
-      model.position.y = -0.85
-      model.position.z = 2.18
-      model.rotation.y = - Math.PI / 2
-     
-    },
-    function ( xhr ) {
-      if (xhr.loaded / xhr.total * 100 === 100){
-        console.log( 'Living room Load Complete' );
-      }
-    },
-    function ( error ) {
-      console.log( 'An error happened', error );
-    }
-  );
-
-}
 
 
 
